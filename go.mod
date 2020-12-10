@@ -3,24 +3,21 @@ module github.com/integr8ly/heimdall
 go 1.13
 
 require (
-	cloud.google.com/go v0.37.4 // indirect
 	github.com/coreos/prometheus-operator v0.34.0
 	github.com/go-openapi/strfmt v0.19.3 // indirect
 	github.com/google/go-containerregistry v0.0.0-20190426165109-b6d875c30fe7
-	github.com/hashicorp/golang-lru v0.5.1 // indirect
 	github.com/jedib0t/go-pretty v4.3.0+incompatible
-	github.com/mattn/go-runewidth v0.0.4 // indirect
 	github.com/openshift/api v3.9.1-0.20190424152011-77b8897ec79a+incompatible
 	github.com/openshift/client-go v0.0.0-20190401163519-84c2b942258a
-	github.com/operator-framework/operator-sdk v0.12.0
-	github.com/pkg/errors v0.8.1
-	github.com/prometheus/client_golang v1.1.0
+	github.com/operator-framework/operator-sdk v1.0.1
+	github.com/pkg/errors v0.9.1
+	github.com/prometheus/client_golang v1.5.1
 	go.mongodb.org/mongo-driver v1.1.2 // indirect
-	golang.org/x/net v0.0.0-20190812203447-cdfb69ac37fc
-	k8s.io/api v0.0.0
-	k8s.io/apimachinery v0.0.0
+	golang.org/x/net v0.0.0-20200625001655-4c5254603344
+	k8s.io/api v0.18.6
+	k8s.io/apimachinery v0.18.6
 	k8s.io/client-go v12.0.0+incompatible
-	sigs.k8s.io/controller-runtime v0.3.0
+	sigs.k8s.io/controller-runtime v0.6.2
 )
 
 // Pinned to kubernetes-1.15.4

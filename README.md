@@ -5,6 +5,10 @@
 - If it is out of date, it will figure out which none floating tag is being used in the cluster and use the registry API to figure out which CVEs are fixed by the newer image
 - It will then label pods with this information so alerting can happen based on these labels
 
+## Dependencies
+go version 1.13.15 (Or Below?)
+recommend gvm to manage go versions
+https://sdk.operatorframework.io/docs/installation/install-operator-sdk/ (which has its own list as well)
 
 ## Try it
 
