@@ -7,9 +7,9 @@ require (
 	github.com/go-openapi/strfmt v0.19.3 // indirect
 	github.com/google/go-containerregistry v0.0.0-20190426165109-b6d875c30fe7
 	github.com/jedib0t/go-pretty v4.3.0+incompatible
-	github.com/openshift/api v3.9.1-0.20190424152011-77b8897ec79a+incompatible
+	github.com/openshift/api v0.0.0-20180801171038-322a19404e37
 	github.com/openshift/client-go v0.0.0-20190401163519-84c2b942258a
-	github.com/operator-framework/operator-sdk v1.0.1
+	github.com/operator-framework/operator-sdk v1.0.1 // indirect
 	github.com/pkg/errors v0.9.1
 	github.com/prometheus/client_golang v1.5.1
 	go.mongodb.org/mongo-driver v1.1.2 // indirect

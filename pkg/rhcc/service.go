@@ -2,18 +2,19 @@ package rhcc
 
 import (
 	"encoding/json"
+
 	"github.com/integr8ly/heimdall/pkg/customMetrics"
+	"github.com/integr8ly/heimdall/pkg/domain"
 	"github.com/pkg/errors"
 
 	"fmt"
-	"github.com/integr8ly/heimdall/pkg/domain"
 	"net/http"
 	"net/url"
 	"sort"
 	"time"
 )
 
-const host = "https://rhcc-api.redhat.com/rest/v1"
+const host = "https://pyxis.api.redhat.com/v1"
 const images = "%s/repository/%s/%s/images"
 const image = "%s/repository/%s/%s/images/%s?architecture="
 
@@ -34,6 +35,8 @@ func (c *Client) AvailableTagsSortedByDate(org string) ([]Tag, error) {
 	// seems to need double encoding
 	image := url.QueryEscape(url.QueryEscape(org))
 	// done to allow us to call the API without the need for credentials (should revisit)
+	//This is where we need to change things. New API requires ssh keys. This makes building the requests with Postman especially difficult as well.
+	//New API is only available when connected over corperate VPN
 	url := fmt.Sprintf(images, host, "registry.access.redhat.com", image)
 	resp, err := http.Get(url)
 	customMetrics.RegistryCallsTotal.Inc()
