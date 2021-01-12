@@ -45,7 +45,7 @@ func WithAuth(auth authn.Authenticator) ImageOption {
 
 // WithAuthFromKeychain is a functional option for overriding the default
 // authenticator on a remote image using an authn.Keychain
-func WithAuthFromKeychain(keys authn.Keychain) ImageOption {
+func WithAuthFromKeychain(keys authn.ssl_connect) ImageOption {
 	return func(i *imageOpener) error {
 		auth, err := keys.Resolve(i.ref.Context().Registry)
 		if err != nil {

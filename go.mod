@@ -12,7 +12,6 @@ require (
 	github.com/mattn/go-runewidth v0.0.4 // indirect
 	github.com/openshift/api v3.9.1-0.20190424152011-77b8897ec79a+incompatible
 	github.com/openshift/client-go v0.0.0-20190401163519-84c2b942258a
-	github.com/operator-framework/operator-sdk v0.12.0
 	github.com/pkg/errors v0.8.1
 	github.com/prometheus/client_golang v1.1.0
 	go.mongodb.org/mongo-driver v1.1.2 // indirect

@@ -8,8 +8,14 @@
 
 ## Try it
 
-- Install Go (go1.13)
+- Install Go
+- Install gvm for virtual environment management and install go1.13
 - Clone this repo
+- Activate virtual environment and specify go version.
+```
+gvm use 1.13
+```
+- Build
 
 ```
 cd <clone_dir>/cmd/cli
@@ -18,8 +24,9 @@ go build .
 ```
 
 Login to a target cluster to ensure your kube config is pointing to the correct cluster, the tool uses the local kube config
+Log in to the Docker image with Redhat registry. (How does one get this?)
 
-You need to get a service account token and login with it locally using the docker login method. Here is one I have set up (you need to login to see it) https://access.redhat.com/terms-based-registry/#/token/-heimdall
+You need to access the Pyxis API and have certs stored locally. See: https://docs.engineering.redhat.com/display/HSSP/Pyxis+access+request
 
 ``` 
 ./cli -namespaces=fuse,enmasse

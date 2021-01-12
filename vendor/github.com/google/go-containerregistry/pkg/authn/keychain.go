@@ -59,7 +59,7 @@ func dockerUserHomeDir() string {
 	// Docker defaults to "$HOME" Linux and OSX.
 	return os.Getenv("HOME")
 }
-
+//Below this line is the Auth that is currently attempting to access Pyxis
 // authEntry is a helper for JSON parsing an "auth" entry of config.json
 // This is not meant for direct consumption.
 type authEntry struct {

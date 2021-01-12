@@ -13,7 +13,7 @@ import (
 	"time"
 )
 
-const host = "https://rhcc-api.redhat.com/rest/v1"
+const host = "https://pyxis.api.redhat.com/v1/"
 const images = "%s/repository/%s/%s/images"
 const image = "%s/repository/%s/%s/images/%s?architecture="
 
@@ -34,7 +34,7 @@ func (c *Client) AvailableTagsSortedByDate(org string) ([]Tag, error) {
 	// seems to need double encoding
 	image := url.QueryEscape(url.QueryEscape(org))
 	// done to allow us to call the API without the need for credentials (should revisit)
-	url := fmt.Sprintf(images, host, "registry.access.redhat.com", image)
+	url := fmt.Sprintf(images, host, "pyxis.api.redhat.com", image)
 	resp, err := http.Get(url)
 	customMetrics.RegistryCallsTotal.Inc()
 	if err != nil {
@@ -43,7 +43,8 @@ func (c *Client) AvailableTagsSortedByDate(org string) ([]Tag, error) {
 	}
 	if resp.StatusCode != http.StatusOK {
 		customMetrics.RegistryCallsFailure.Inc()
-		return nil, errors.New("unexpected response from rhcc api " + resp.Status)
+		fmt.Println(resp.Header)
+		return nil, errors.New("unexpected response from pyxis api " + resp.Status)
 	}
 	var format = "20060102T15:04:05.000-0700"
 	defer resp.Body.Close()
@@ -107,7 +108,7 @@ func (c *Client) CVES(org, tag string) ([]domain.CVE, error) {
 	}
 	cri := &ContainerRepositoryImage{}
 	i := url.QueryEscape(url.QueryEscape(org))
-	url := fmt.Sprintf(image, host, "registry.access.redhat.com", i, tag)
+	url := fmt.Sprintf(image, host, "pyxis.api.redhat.com", i, tag)
 	resp, err := http.Get(url)
 	customMetrics.RegistryCallsTotal.Inc()
 	if err != nil {
@@ -115,7 +116,7 @@ func (c *Client) CVES(org, tag string) ([]domain.CVE, error) {
 	}
 	if resp.StatusCode != http.StatusOK {
 		customMetrics.RegistryCallsFailure.Inc()
-		return nil, errors.New("unexpected response from rhcc api " + resp.Status)
+		return nil, errors.New("unexpected response from Pyxis api " + resp.Status)
 	}
 
 	defer resp.Body.Close()

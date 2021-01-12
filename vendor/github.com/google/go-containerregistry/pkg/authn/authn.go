@@ -17,5 +17,6 @@ package authn
 // Authenticator is used to authenticate Docker transports.
 type Authenticator interface {
 	// Authorization returns the value to use in an http transport's Authorization header.
+	
 	Authorization() (string, error)
 }
